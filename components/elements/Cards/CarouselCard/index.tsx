@@ -5,7 +5,7 @@ import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { Image, Text } from "react-native";
 
-const CarouselCard = ({ item }: { item: CarouselCardType }) => {
+const SliderCard = ({ item }: { item: CarouselCardType }) => {
   return (
     <TouchableOpacity
       className="mx-1 rounded-xl overflow-hidden bg-white  shadow-lg "
@@ -67,4 +67,4 @@ const CarouselCard = ({ item }: { item: CarouselCardType }) => {
   );
 };
 
-export default CarouselCard;
+export default SliderCard;
