@@ -7,7 +7,7 @@ import Carousel from "react-native-reanimated-carousel";
 
 // const { width: screenWidth } = Dimensions.get("window");
 
-const FoodCarousel = ({
+const HorizontalSlider = ({
   card,
   cardData,
 }: {
@@ -34,4 +34,4 @@ const FoodCarousel = ({
   );
 };
 
-export default FoodCarousel;
+export default HorizontalSlider;
