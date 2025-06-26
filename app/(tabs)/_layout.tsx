@@ -6,6 +6,7 @@ import { HapticTab } from "@/components/HapticTab";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 import TopMenuBar from "@/components/home/TopMenuBar";
+import { SafeAreaView } from "react-native";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -13,7 +14,6 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        header: () => <TopMenuBar />,
         tabBarActiveTintColor: "#ffffff",
         headerShown: false,
         tabBarButton: HapticTab,
@@ -33,6 +33,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          header: () => (
+            <SafeAreaView className="">
+              <TopMenuBar />
+            </SafeAreaView>
+          ),
+          headerShown: true,
           title: "",
           tabBarIcon: ({ color, focused }) => (
             <Ionicons

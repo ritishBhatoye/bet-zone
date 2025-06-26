@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 
 const TopMenuBar = () => {
   return (
-    <View className="flex flex-row items-baseline justify-between">
+    <View className="flex flex-row items-end justify-between px-8 ">
       <View className="flex flex-col">
         <Text className="text-lg font-normal">Hello,</Text>
         <Text className="text-lg font-semibold">RAHUL BHATOYE</Text>
