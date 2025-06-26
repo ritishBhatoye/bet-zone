@@ -1,11 +1,10 @@
-import { CarouselCardType } from "@/types";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 
 import { TouchableOpacity, View } from "react-native";
 import { Image, Text } from "react-native";
 
-const SliderCard = ({ item }: { item: CarouselCardType }) => {
+const SliderCard = ({ item }: { item: SliderCardType }) => {
   return (
     <TouchableOpacity
       className="mx-1 rounded-xl overflow-hidden bg-white  shadow-lg "
@@ -30,18 +29,14 @@ const SliderCard = ({ item }: { item: CarouselCardType }) => {
               className="text-base font-bold text-gray-500 leading-tight"
               numberOfLines={1}
             >
-              {item.shopName}
-            </Text>
-
-            <Text style={{ color: item.color }} className={`font-bold text-md`}>
-              Get Up To {item.offer}% OFF
+              {item.event}
             </Text>
 
             <Text
               className="text-sm text-gray-600 font-light"
               numberOfLines={2}
             >
-              {item.itemName}
+              {item.matchType}
             </Text>
 
             <View
@@ -55,7 +50,7 @@ const SliderCard = ({ item }: { item: CarouselCardType }) => {
           {/* Right side - Content */}
           <View className="flex items-center">
             <Image
-              source={{ uri: item.itemImage }}
+              source={{ uri: item.image }}
               className="h-44 w-44 pt-1/3"
               resizeMode="cover"
             />
