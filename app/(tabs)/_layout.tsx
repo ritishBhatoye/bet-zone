@@ -5,6 +5,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { HapticTab } from "@/components/HapticTab";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
+import TopMenuBar from "@/components/home/TopMenuBar01";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
