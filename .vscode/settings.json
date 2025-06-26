@@ -47,5 +47,8 @@
 
   // 👇 Optional PowerMode etc.
 "powermode.enabled": false,
-"explorer.confirmDragAndDrop": false
+"explorer.confirmDragAndDrop": false,
+"cSpell.words": [
+  "Topmenubar"
+]
 }
