@@ -14,4 +14,5 @@ interface EventItemType {
   id: number;
   name: string;
   icon: any;
+  color: string;
 }

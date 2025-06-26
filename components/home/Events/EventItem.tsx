@@ -9,7 +9,7 @@ interface Props {
 const EventItem = ({ event }: Props) => {
   return (
     <View className="flex flex-row items-center">
-      <Ionicons name={event.icon} color={"black"} size={18} />
+      <Ionicons name={event.icon} color={event.color} size={18} />
       <Text className="text-sm font-normal">{event.name}</Text>
     </View>
   );
