@@ -6,7 +6,7 @@ import SearchInputField from "../atoms/SearchInputField";
 
 const TopMenuBar = () => {
   return (
-    <View className="px-8 gap-3">
+    <View className="px-8 gap-3 bg-white">
       <View className="flex flex-row items-end justify-between ">
         <View className="flex flex-col">
           <Text className="text-lg font-normal">Hello,</Text>

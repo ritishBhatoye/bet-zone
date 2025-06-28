@@ -16,7 +16,7 @@ interface SwitchProps {
 const Switch: React.FC<SwitchProps> = ({
   value,
   onValueChange,
-  activeColor = "#007AFF",
+  activeColor = "#FF4B00",
   inactiveColor = "#E5E5EA",
   thumbColor = "#FFFFFF",
   disabled = false,

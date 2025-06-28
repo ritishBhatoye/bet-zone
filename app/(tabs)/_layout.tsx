@@ -34,7 +34,7 @@ export default function TabLayout() {
         name="index"
         options={{
           header: () => (
-            <SafeAreaView className="">
+            <SafeAreaView className="bg-white">
               <TopMenuBar />
             </SafeAreaView>
           ),

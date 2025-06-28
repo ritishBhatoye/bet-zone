@@ -36,18 +36,18 @@ const EventFilterItem = ({ event, isActive = false, onPress }: Props) => {
       <TouchableOpacity
         onPress={() => onPress(event)}
         activeOpacity={0.7}
-        className={`flex flex-row items-center px-3 py-2 rounded-full border ${
+        className={`flex flex-row items-center px-3 py-3 rounded-full border ${
           isActive ? "bg-black border-black" : "bg-gray-200 border-gray-200"
         }`}
       >
         <Ionicons
           name={event.icon}
           color={isActive ? "white" : "#6B7280"}
-          size={18}
+          size={21}
         />
         {isActive && (
           <Text
-            className={`text-sm font-medium ml-2 ${
+            className={`text-base font-medium ml-2 ${
               isActive ? "text-white" : "text-gray-600"
             }`}
           >
