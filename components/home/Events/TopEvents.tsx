@@ -22,7 +22,7 @@ const TopEvents = () => {
   // Filter matches by event and live status
   const filteredMatches = matchLiveDummyData.filter((match) => {
     const eventMatch = selectedEventName
-      ? match.sport === selectedEventName
+      ? match.sport === selectedEventName.toLowerCase()
       : true;
     const liveMatch = isEventActive
       ? match.isLive && match.matchStatus === "live"
