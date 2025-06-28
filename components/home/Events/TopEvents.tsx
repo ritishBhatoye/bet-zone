@@ -13,12 +13,16 @@ const TopEvents = () => {
   };
 
   return (
-    <View className="flex flex-col">
-      <View className="flex-row justify-between items-center">
+    <View className="flex flex-col gap-5">
+      <View className="flex-row justify-between items-center px-5">
         <Text className="text-gray-500 font-bold text-lg">TopEvents</Text>
         <View className="flex-row gap-1.5 items-center">
           <Text className="text-gray-500 font-bold text-sm">LIVE</Text>
-          <Switch value={isEventActive} onValueChange={setIsEventActive} />
+          <Switch
+            size="small"
+            value={isEventActive}
+            onValueChange={setIsEventActive}
+          />
         </View>
       </View>
 
