@@ -33,11 +33,11 @@ const TopEvents = () => {
   return (
     <View className="flex flex-col gap-5">
       <View className="flex-row justify-between items-center px-5">
-        <Text className="text-gray-500 font-montserrat-extra-bold text-2xl">
-          Top Events
-        </Text>
+        <Text className="text-gray-500 font-avalar text-2xl">Top Events</Text>
         <View className="flex-row gap-1.5 items-center">
-          <Text className="text-gray-600 font-barlow-bold text-lg">LIVE</Text>
+          <Text className="text-red-500 font-montserrat-bold text-lg">
+            LIVE
+          </Text>
           <Switch
             size="small"
             value={isEventActive}
@@ -70,7 +70,7 @@ const TopEvents = () => {
             <MatchLiveCard key={match.id} liveItem={match} />
           ))
         ) : (
-          <Text className="text-center text-gray-400 mt-8">
+          <Text className="text-center text-gray-400 mt-8 font-montserrat">
             No matches found for this event.
           </Text>
         )}
