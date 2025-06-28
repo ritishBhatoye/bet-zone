@@ -13,25 +13,25 @@ const MatchLiveCard = ({ liveItem, onPress }: Props) => {
     <TouchableOpacity
       onPress={() => onPress?.(liveItem)}
       activeOpacity={0.9}
-      className="mx-2 mb-4"
+      className=""
     >
       <LinearGradient
-        colors={["#FFFFFF", "#F8F9FA", "#F1F3F4"]}
+        colors={["#fff", "#9ca3af", "#000"]}
         locations={[0, 0.5, 1]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
-        className="rounded-2xl shadow-lg"
         style={{
+          borderRadius: 25,
           shadowColor: "#000",
           shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.1,
+          shadowOpacity: 4,
           shadowRadius: 8,
           elevation: 5,
         }}
       >
         {/* Live Indicator */}
         {liveItem.isLive && (
-          <View className="absolute top-3 right-3 z-10">
+          <View className="absolute top-3 right-3 z-10 bg-gray-400">
             <View className="flex-row items-center bg-red-500 px-2 py-1 rounded-full">
               <View className="w-2 h-2 bg-white rounded-full mr-1 animate-pulse" />
               <Text className="text-white text-xs font-bold">LIVE</Text>
