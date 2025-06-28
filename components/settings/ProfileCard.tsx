@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { Image } from "expo-image";
 const ProfileCard = () => {
   return (
-    <View className="flex flex-row items-center rounded-lg bg-black p-5 py-10 gap-4">
+    <View className="flex flex-row items-center rounded-3xl bg-black p-5 py-10 gap-4">
       <View className="">
         <Image style={{ borderRadius: 20 }} />
       </View>

@@ -31,15 +31,36 @@ const TabsSlider: React.FC<TabsSliderProps> = ({ tabLabel, TabScreen }) => {
   const renderTabBar = (props: any) => (
     <TabBar
       {...props}
-      scrollEnabled
-      indicatorStyle={{ backgroundColor: "#000", height: 2, borderRadius: 2 }}
-      style={{
+      scrollEnabled={false}
+      indicatorContainerStyle={{
+        borderRadius: 20,
+        overflow: "hidden",
+        height: 40,
+        marginVertical: 4,
+        marginHorizontal: 4,
         backgroundColor: "transparent",
+      }}
+      indicatorStyle={{
+        backgroundColor: "#fff",
+        borderRadius: 20,
+        height: 40,
+        marginVertical: 0,
+      }}
+      style={{
+        backgroundColor: "#222C",
         elevation: 0,
+        borderRadius: 23,
         shadowOpacity: 0,
         marginBottom: 8,
+        flexDirection: "row",
+        justifyContent: "space-between",
       }}
-      tabStyle={{ width: "auto", paddingHorizontal: 16 }}
+      activeColor="#000"
+      tabStyle={{
+        flex: 1,
+        paddingHorizontal: 16,
+        backgroundColor: "transparent",
+      }}
       renderLabel={({
         route,
         focused,
@@ -52,6 +73,7 @@ const TabsSlider: React.FC<TabsSliderProps> = ({ tabLabel, TabScreen }) => {
             color: focused ? "#000" : "#888",
             fontWeight: focused ? "bold" : "normal",
             fontSize: 16,
+            textAlign: "center",
           }}
         >
           {route.title}

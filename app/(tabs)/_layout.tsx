@@ -1,4 +1,4 @@
-import { Tabs } from "expo-router";
+import { Router, Tabs, useRouter } from "expo-router";
 import React from "react";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -10,7 +10,7 @@ import { SafeAreaView } from "react-native";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
+  const router: Router = useRouter();
   return (
     <Tabs
       screenOptions={{
@@ -66,7 +66,19 @@ export default function TabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
+          headerLeft: () => (
+            <Ionicons
+              onPress={() => router.back()}
+              name="chevron-back-outline"
+              color={"white"}
+              size={20}
+            />
+          ),
           title: "",
+          headerStyle: { backgroundColor: "#000" },
+          headerShown: true,
+          headerTitle: "Profile",
+          headerTitleStyle: { color: "#fff", fontWeight: 600, fontSize: 20 },
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               size={28}
