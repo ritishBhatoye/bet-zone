@@ -27,6 +27,7 @@ const EventFilterItem = ({ event, isActive = false, onPress }: Props) => {
 
   return (
     <Animated.View
+      className={"pt-3"}
       style={[
         {
           transform: [{ scale: scaleAnim }],
