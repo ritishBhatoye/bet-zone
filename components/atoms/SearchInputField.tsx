@@ -20,7 +20,9 @@ const SearchInputField = ({
         {isLeadingIcon && (
           <Ionicons name="search" size={20} color={"#9ca3af"} className="" />
         )}
-        <Text className="text-md text-gray-400">{fieldText}</Text>
+        <Text className="text-md text-gray-400 font-montserrat">
+          {fieldText}
+        </Text>
       </View>
       <Ionicons name={icon} size={20} color={"#EF4F27"} />
     </View>
