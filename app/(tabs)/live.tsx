@@ -1,6 +1,6 @@
 import LiveScreen from "@/components/live/LiveScreen";
 import React from "react";
-import { Text, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 
 const Live = () => {
   return (
