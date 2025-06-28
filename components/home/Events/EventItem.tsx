@@ -1,18 +1,36 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { View, Text } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
 interface Props {
   event: EventItemType;
+  isActive?: boolean;
+  onPress: (event: EventItemType) => void;
 }
 
-const EventItem = ({ event }: Props) => {
+const EventFilterItem = ({ event, isActive = false, onPress }: Props) => {
   return (
-    <View className="flex flex-row items-center">
-      <Ionicons name={event.icon} color={event.color} size={18} />
-      <Text className="text-sm font-normal">{event.name}</Text>
-    </View>
+    <TouchableOpacity
+      onPress={() => onPress(event)}
+      activeOpacity={0.7}
+      className={`flex flex-row items-center px-3 py-2 rounded-full border ${
+        isActive ? "bg-black border-black" : "bg-gray-200 border-gray-200"
+      }`}
+    >
+      <Ionicons
+        name={event.icon}
+        color={isActive ? "white" : "#6B7280"}
+        size={18}
+      />
+      <Text
+        className={`text-sm font-medium ml-2 ${
+          isActive ? "text-white" : "text-gray-600"
+        }`}
+      >
+        {event.name}
+      </Text>
+    </TouchableOpacity>
   );
 };
 
-export default EventItem;
+export default EventFilterItem;

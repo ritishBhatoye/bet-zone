@@ -2,6 +2,12 @@
 
 // type IoniconName = React.ComponentProps<typeof Ionicons>["name"];
 
+interface FilterType {
+  id: number;
+  label: string;
+  icon: string;
+}
+
 interface SliderCardType {
   id: number;
   matchType: string;
@@ -14,5 +20,4 @@ interface EventItemType {
   id: number;
   name: string;
   icon: any;
-  color: string;
 }
