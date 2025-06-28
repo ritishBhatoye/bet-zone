@@ -22,13 +22,15 @@ const EventFilterItem = ({ event, isActive = false, onPress }: Props) => {
         color={isActive ? "white" : "#6B7280"}
         size={18}
       />
-      <Text
-        className={`text-sm font-medium ml-2 ${
-          isActive ? "text-white" : "text-gray-600"
-        }`}
-      >
-        {event.name}
-      </Text>
+      {isActive && (
+        <Text
+          className={`text-sm font-medium ml-2 ${
+            isActive ? "text-white" : "text-gray-600"
+          }`}
+        >
+          {event.name}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 };
