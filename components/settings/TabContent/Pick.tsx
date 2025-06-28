@@ -52,7 +52,7 @@ const Pick = () => {
       className="flex-1 bg-transparent"
       showsVerticalScrollIndicator={false}
     >
-      <View className="p-0">
+      <View className="p-4">
         {/* Stats Overview */}
         <View className="bg-gray-800 rounded-2xl p-5 mb-5">
           <Text className="text-white text-xl font-bold mb-4">

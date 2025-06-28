@@ -66,7 +66,7 @@ const Wallet = () => {
       className="flex-1 bg-transparent"
       showsVerticalScrollIndicator={false}
     >
-      <View className="">
+      <View className="p-4">
         {/* Balance Overview */}
         <View className="bg-gray-800 rounded-2xl p-5 mb-5">
           <Text className="text-white text-xl font-bold mb-4">
