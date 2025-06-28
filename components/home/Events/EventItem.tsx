@@ -47,7 +47,7 @@ const EventFilterItem = ({ event, isActive = false, onPress }: Props) => {
         />
         {isActive && (
           <Text
-            className={`text-base font-medium ml-2 ${
+            className={`text-base font-montserrat-medium ml-2 ${
               isActive ? "text-white" : "text-gray-600"
             }`}
           >
