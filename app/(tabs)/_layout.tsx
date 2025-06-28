@@ -4,12 +4,12 @@ import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { HapticTab } from "@/components/HapticTab";
 
-import { useColorScheme } from "@/hooks/useColorScheme";
+// import { useColorScheme } from "@/hooks/useColorScheme";
 import TopMenuBar from "@/components/home/TopMenuBar";
 import { SafeAreaView } from "react-native";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  // const colorScheme = useColorScheme();
   const router: Router = useRouter();
   return (
     <Tabs
