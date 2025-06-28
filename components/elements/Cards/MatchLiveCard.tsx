@@ -1,60 +1,164 @@
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-import { View, Text } from "react-native";
-
-interface props {
-  liveItem: any;
+interface Props {
+  liveItem: MatchType;
+  onPress?: (match: MatchType) => void;
 }
 
-const MatchLiveCard = ({ liveItem }: props) => {
+const MatchLiveCard = ({ liveItem, onPress }: Props) => {
   return (
-    <LinearGradient
-      colors={["#fff", "#ffff", "#ffff"]}
-      locations={[1, 1, 0.1]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      className="w-10/12"
-      style={{ borderRadius: 24 }}
+    <TouchableOpacity
+      onPress={() => onPress?.(liveItem)}
+      activeOpacity={0.9}
+      className="mx-2 mb-4"
     >
-      <View className="p-5">
-        <View className="flex-row justify-evenly gap-3 px-2">
-          <View className="flex-col items-center">
-            <Image source={liveItem.team.logo} />
-            <Text className="text-lg text-black font-medium">
-              {liveItem.team.formar}
-            </Text>
+      <LinearGradient
+        colors={["#FFFFFF", "#F8F9FA", "#F1F3F4"]}
+        locations={[0, 0.5, 1]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        className="rounded-2xl shadow-lg"
+        style={{
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.1,
+          shadowRadius: 8,
+          elevation: 5,
+        }}
+      >
+        {/* Live Indicator */}
+        {liveItem.isLive && (
+          <View className="absolute top-3 right-3 z-10">
+            <View className="flex-row items-center bg-red-500 px-2 py-1 rounded-full">
+              <View className="w-2 h-2 bg-white rounded-full mr-1 animate-pulse" />
+              <Text className="text-white text-xs font-bold">LIVE</Text>
+            </View>
           </View>
-          <View className="flex-col items-center">
-            <Text className="text-xs font-normal text-gray-400">
+        )}
+
+        <View className="p-6">
+          {/* League Type */}
+          <View className="flex-row justify-center mb-4">
+            <Text className="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
               {liveItem.leagueType}
             </Text>
-            <Text className="text-black text-2xl font-medium">
-              {liveItem.score}
-            </Text>
-            <Text className="text-xs font-normal text-gray-400">
-              {liveItem.duration}
-            </Text>
           </View>
-          <View className="flex-col items-center">
-            <Image source={liveItem.team.logo} />
-            <Text className="text-lg text-black font-medium">
-              {liveItem.team.formar}
-            </Text>
-          </View>
-        </View>
-        <View className="gap-3 flex-row justify-around px-2">
-          {liveItem.winProbability.map((win: any) => (
-            <View key={win.id} className="p-5 bg-gray-300 ">
-              <Text className="text-black font-semibold text-base">
-                {win.probability}
+
+          {/* Teams and Score */}
+          <View className="flex-row justify-between items-center mb-6">
+            {/* Team 1 */}
+            <View className="flex-1 items-center">
+              <View className="w-16 h-16 mb-2">
+                <Image
+                  source={{ uri: liveItem.team1.logo }}
+                  className="w-full h-full rounded-full"
+                  contentFit="cover"
+                />
+              </View>
+              <Text
+                className="text-sm font-semibold text-gray-800 text-center"
+                numberOfLines={2}
+              >
+                {liveItem.team1.name}
+              </Text>
+              <Text className="text-xs text-gray-500 mt-1">
+                {liveItem.team1.former}
               </Text>
             </View>
-          ))}
+
+            {/* Score and Duration */}
+            <View className="flex-col items-center mx-4">
+              <Text className="text-3xl font-bold text-gray-900 mb-1">
+                {liveItem.score}
+              </Text>
+              <Text className="text-xs text-gray-400 font-medium">
+                {liveItem.duration}
+              </Text>
+              {liveItem.isLive && (
+                <View className="flex-row items-center mt-1">
+                  <View className="w-1.5 h-1.5 bg-red-500 rounded-full mr-1" />
+                  <Text className="text-xs text-red-500 font-medium">Live</Text>
+                </View>
+              )}
+            </View>
+
+            {/* Team 2 */}
+            <View className="flex-1 items-center">
+              <View className="w-16 h-16 mb-2">
+                <Image
+                  source={{ uri: liveItem.team2.logo }}
+                  className="w-full h-full rounded-full"
+                  contentFit="cover"
+                />
+              </View>
+              <Text
+                className="text-sm font-semibold text-gray-800 text-center"
+                numberOfLines={2}
+              >
+                {liveItem.team2.name}
+              </Text>
+              <Text className="text-xs text-gray-500 mt-1">
+                {liveItem.team2.former}
+              </Text>
+            </View>
+          </View>
+
+          {/* Win Probability */}
+          <View className="bg-gray-50 rounded-xl p-4">
+            <Text className="text-xs font-medium text-gray-600 mb-3 text-center">
+              Win Probability
+            </Text>
+            <View className="flex-row justify-between gap-3">
+              {liveItem.winProbability.map(
+                (win: {
+                  id: number;
+                  team: string;
+                  probability: string;
+                  percentage: number;
+                }) => (
+                  <View
+                    key={win.id}
+                    className="flex-1 bg-white rounded-lg p-3 border border-gray-100"
+                  >
+                    <Text className="text-xs text-gray-500 text-center mb-1">
+                      {win.team}
+                    </Text>
+                    <Text className="text-lg font-bold text-gray-900 text-center">
+                      {win.probability}
+                    </Text>
+                    <View className="mt-2">
+                      <View className="w-full bg-gray-200 rounded-full h-1.5">
+                        <View
+                          className="bg-blue-500 h-1.5 rounded-full"
+                          style={{ width: `${win.percentage}%` }}
+                        />
+                      </View>
+                      <Text className="text-xs text-gray-500 text-center mt-1">
+                        {win.percentage}%
+                      </Text>
+                    </View>
+                  </View>
+                )
+              )}
+            </View>
+          </View>
+
+          {/* Action Button */}
+          <TouchableOpacity
+            className="mt-4 bg-blue-500 py-3 rounded-xl"
+            activeOpacity={0.8}
+          >
+            <Text className="text-white font-semibold text-center">
+              Place Bet
+            </Text>
+          </TouchableOpacity>
         </View>
-      </View>
-    </LinearGradient>
+      </LinearGradient>
+    </TouchableOpacity>
   );
 };
 
