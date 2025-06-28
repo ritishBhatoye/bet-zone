@@ -22,7 +22,7 @@ interface EventItemType {
   icon: any;
 }
 
-export interface MatchType {
+interface MatchType {
   id: number;
   leagueType: string;
   duration: string;
