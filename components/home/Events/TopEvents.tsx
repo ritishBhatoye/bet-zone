@@ -1,8 +1,9 @@
-import { TopEventsFilterData } from "@/constants/home";
+import { TopEventsFilterData, matchLiveDummyData } from "@/constants/home";
 import React, { useState } from "react";
-import { FlatList, View, Text } from "react-native";
+import { FlatList, View, Text, ScrollView } from "react-native";
 import EventFilterItem from "./EventItem";
 import Switch from "@/components/atoms/Switch";
+import MatchLiveCard from "@/components/elements/Cards/MatchLiveCard";
 
 const TopEvents = () => {
   const [isEventActive, setIsEventActive] = useState(false);
@@ -11,6 +12,23 @@ const TopEvents = () => {
   const handleEventItemPress = (event: EventItemType) => {
     setSelectedEventId(event.id);
   };
+
+  // Find selected event name for filtering
+  const selectedEvent = TopEventsFilterData.find(
+    (e) => e.id === selectedEventId
+  );
+  const selectedEventName = selectedEvent ? selectedEvent.name : null;
+
+  // Filter matches by event and live status
+  const filteredMatches = matchLiveDummyData.filter((match) => {
+    const eventMatch = selectedEventName
+      ? match.sport === selectedEventName
+      : true;
+    const liveMatch = isEventActive
+      ? match.isLive && match.matchStatus === "live"
+      : true;
+    return eventMatch && liveMatch;
+  });
 
   return (
     <View className="flex flex-col gap-5">
@@ -40,6 +58,21 @@ const TopEvents = () => {
           />
         )}
       />
+
+      <ScrollView
+        style={{ flexGrow: 0 }}
+        contentContainerStyle={{ paddingHorizontal: 16, gap: 16 }}
+      >
+        {filteredMatches.length > 0 ? (
+          filteredMatches.map((match) => (
+            <MatchLiveCard key={match.id} liveItem={match} />
+          ))
+        ) : (
+          <Text className="text-center text-gray-400 mt-8">
+            No matches found for this event.
+          </Text>
+        )}
+      </ScrollView>
     </View>
   );
 };

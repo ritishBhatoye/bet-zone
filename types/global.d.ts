@@ -24,6 +24,7 @@ interface EventItemType {
 
 interface MatchType {
   id: number;
+  sport: string;
   leagueType: string;
   duration: string;
   score: string;
