@@ -1,8 +1,11 @@
 import ProfileCard from "@/components/settings/ProfileCard";
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import TabsSlider from "@/components/elements/TabsSlider";
 import { LinearGradient } from "expo-linear-gradient";
+import Pick from "@/components/settings/TabContent/Pick";
+import Wallet from "@/components/settings/TabContent/Wallet";
+import Social from "@/components/settings/TabContent/Social";
 
 const Settings = () => {
   return (
@@ -16,15 +19,15 @@ const Settings = () => {
       <TabsSlider
         tabLabel={["Picks", "Wallet", "Socials"]}
         TabScreen={[
-          <View key="Picks">
-            <Text>Picks content goes here.</Text>
-          </View>,
-          <View key="Wallet">
-            <Text>Wallet content goes here.</Text>
-          </View>,
-          <View key="Socials">
-            <Text>Socials content goes here.</Text>
-          </View>,
+          <ScrollView showsVerticalScrollIndicator={false} key="Picks">
+            <Pick />
+          </ScrollView>,
+          <ScrollView key="Wallet">
+            <Wallet />
+          </ScrollView>,
+          <ScrollView key="Socials">
+            <Social />
+          </ScrollView>,
         ]}
       />
     </LinearGradient>
