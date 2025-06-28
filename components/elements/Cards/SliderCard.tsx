@@ -43,7 +43,7 @@ const SliderCard = ({ item }: { item: SliderCardType }) => {
               className={`rounded-3xl  p-2 mt-auto`}
               style={{ backgroundColor: item.color }}
             >
-              <Text className="text-white">ORDER NOW</Text>
+              <Text className="text-white">CHECK NOW</Text>
             </View>
           </View>
 
