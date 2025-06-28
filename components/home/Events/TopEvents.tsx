@@ -1,26 +1,42 @@
 import { TopEventsFilterData } from "@/constants/home";
-import React from "react";
-import { FlatList, ScrollView, View } from "react-native";
+import React, { useState } from "react";
+import { FlatList, View, Text } from "react-native";
 import EventFilterItem from "./EventItem";
+import Switch from "@/components/atoms/Switch";
 
 const TopEvents = () => {
+  const [isEventActive, setIsEventActive] = useState(false);
+  const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
+
+  const handleEventItemPress = (event: EventItemType) => {
+    setSelectedEventId(event.id);
+  };
+
   return (
     <View className="flex flex-col">
-      <View className="flex-row justify-between">TopEvents</View>
-      <ScrollView horizontal>
-        {/* <Filter filter={} /> */}
-        <FlatList
-          data={TopEventsFilterData}
-          renderItem={({ item }) => (
-            <EventFilterItem
-              event={item}
-              onPress={function (event: EventItemType): void {
-                throw new Error("Function not implemented.");
-              }}
-            />
-          )}
-        />
-      </ScrollView>
+      <View className="flex-row justify-between items-center">
+        <Text className="text-gray-500 font-bold text-lg">TopEvents</Text>
+        <View className="flex-row gap-1.5 items-center">
+          <Text className="text-gray-500 font-bold text-sm">LIVE</Text>
+          <Switch value={isEventActive} onValueChange={setIsEventActive} />
+        </View>
+      </View>
+
+      {/* <Filter filter={} /> */}
+      <FlatList
+        data={TopEventsFilterData}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ paddingHorizontal: 16, gap: 8 }}
+        renderItem={({ item }) => (
+          <EventFilterItem
+            key={item.id}
+            event={item}
+            isActive={selectedEventId === item.id}
+            onPress={handleEventItemPress}
+          />
+        )}
+      />
     </View>
   );
 };
