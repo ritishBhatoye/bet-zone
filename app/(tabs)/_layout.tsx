@@ -71,7 +71,7 @@ export default function TabLayout() {
               onPress={() => router.back()}
               name="chevron-back-outline"
               color={"white"}
-              size={20}
+              size={27}
             />
           ),
           title: "",
