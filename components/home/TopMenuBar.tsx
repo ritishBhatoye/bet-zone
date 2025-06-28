@@ -9,8 +9,8 @@ const TopMenuBar = () => {
     <View className="px-8 gap-3 bg-white">
       <View className="flex flex-row items-end justify-between ">
         <View className="flex flex-col">
-          <Text className="text-lg font-normal">Hello,</Text>
-          <Text className="text-lg font-semibold">RAHUL BHATOYE</Text>
+          <Text className="text-lg font-montserrat-bold">Hello,</Text>
+          <Text className="text-lg font-avalar-bold">RAHUL BHATOYE</Text>
         </View>
         <Ionicons
           name="add-outline"
