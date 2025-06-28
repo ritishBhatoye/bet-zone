@@ -63,175 +63,73 @@ const Wallet = () => {
 
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: "transparent" }}
+      className="flex-1 bg-transparent"
       showsVerticalScrollIndicator={false}
     >
-      <View style={{ padding: 16 }}>
+      <View className="">
         {/* Balance Overview */}
-        <View
-          style={{
-            backgroundColor: "#1a1a1a",
-            borderRadius: 16,
-            padding: 20,
-            marginBottom: 20,
-          }}
-        >
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 20,
-              fontWeight: "bold",
-              marginBottom: 16,
-            }}
-          >
+        <View className="bg-gray-800 rounded-2xl p-5 mb-5">
+          <Text className="text-white text-xl font-bold mb-4">
             Wallet Balance
           </Text>
-          <Text
-            style={{
-              color: "#4CAF50",
-              fontSize: 32,
-              fontWeight: "bold",
-              marginBottom: 8,
-            }}
-          >
+          <Text className="text-green-500 text-3xl font-bold mb-2">
             {walletData.balance}
           </Text>
-          <Text style={{ color: "#888", fontSize: 14, marginBottom: 16 }}>
+          <Text className="text-gray-400 text-sm mb-4">
             Available for betting
           </Text>
 
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginBottom: 12,
-            }}
-          >
-            <Text style={{ color: "#888", fontSize: 14 }}>Bonus Balance</Text>
-            <Text
-              style={{ color: "#FF9800", fontSize: 14, fontWeight: "bold" }}
-            >
+          <View className="flex-row justify-between mb-3">
+            <Text className="text-gray-400 text-sm">Bonus Balance</Text>
+            <Text className="text-orange-500 text-sm font-bold">
               {walletData.bonus}
             </Text>
           </View>
 
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginBottom: 12,
-            }}
-          >
-            <Text style={{ color: "#888", fontSize: 14 }}>Total Deposited</Text>
-            <Text style={{ color: "#fff", fontSize: 14 }}>
+          <View className="flex-row justify-between mb-3">
+            <Text className="text-gray-400 text-sm">Total Deposited</Text>
+            <Text className="text-white text-sm">
               {walletData.totalDeposited}
             </Text>
           </View>
 
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
-          >
-            <Text style={{ color: "#888", fontSize: 14 }}>Total Withdrawn</Text>
-            <Text style={{ color: "#fff", fontSize: 14 }}>
+          <View className="flex-row justify-between">
+            <Text className="text-gray-400 text-sm">Total Withdrawn</Text>
+            <Text className="text-white text-sm">
               {walletData.totalWithdrawn}
             </Text>
           </View>
         </View>
 
         {/* Quick Actions */}
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            marginBottom: 20,
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              backgroundColor: "#4CAF50",
-              padding: 16,
-              borderRadius: 12,
-              flex: 1,
-              marginRight: 8,
-              alignItems: "center",
-            }}
-          >
+        <View className="flex-row justify-between mb-5">
+          <TouchableOpacity className="bg-green-500 p-4 rounded-xl flex-1 mr-2 items-center">
             <Ionicons name="add-circle-outline" size={24} color="#fff" />
-            <Text
-              style={{
-                color: "#fff",
-                fontSize: 14,
-                fontWeight: "bold",
-                marginTop: 8,
-              }}
-            >
-              Deposit
-            </Text>
+            <Text className="text-white text-sm font-bold mt-2">Deposit</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              backgroundColor: "#2196F3",
-              padding: 16,
-              borderRadius: 12,
-              flex: 1,
-              marginLeft: 8,
-              alignItems: "center",
-            }}
-          >
+          <TouchableOpacity className="bg-blue-500 p-4 rounded-xl flex-1 ml-2 items-center">
             <Ionicons name="arrow-up-circle-outline" size={24} color="#fff" />
-            <Text
-              style={{
-                color: "#fff",
-                fontSize: 14,
-                fontWeight: "bold",
-                marginTop: 8,
-              }}
-            >
-              Withdraw
-            </Text>
+            <Text className="text-white text-sm font-bold mt-2">Withdraw</Text>
           </TouchableOpacity>
         </View>
 
         {/* Payment Methods */}
-        <View style={{ marginBottom: 20 }}>
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 18,
-              fontWeight: "bold",
-              marginBottom: 16,
-            }}
-          >
+        <View className="mb-5">
+          <Text className="text-white text-lg font-bold mb-4">
             Payment Methods
           </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-            }}
-          >
+          <View className="flex-row justify-between flex-wrap">
             {paymentMethods.map((method) => (
               <TouchableOpacity
                 key={method.id}
-                style={{
-                  backgroundColor: "#1a1a1a",
-                  borderRadius: 12,
-                  padding: 16,
-                  width: "48%",
-                  marginBottom: 12,
-                  alignItems: "center",
-                }}
+                className="bg-gray-800 rounded-xl p-4 w-[48%] mb-3 items-center"
               >
-                <Ionicons name={method.icon} size={24} color={method.color} />
-                <Text
-                  style={{
-                    color: "#fff",
-                    fontSize: 14,
-                    fontWeight: "bold",
-                    marginTop: 8,
-                  }}
-                >
+                <Ionicons
+                  name={method.icon as any}
+                  size={24}
+                  color={method.color}
+                />
+                <Text className="text-white text-sm font-bold mt-2">
                   {method.name}
                 </Text>
               </TouchableOpacity>
@@ -240,162 +138,79 @@ const Wallet = () => {
         </View>
 
         {/* Betting Limits */}
-        <View
-          style={{
-            backgroundColor: "#1a1a1a",
-            borderRadius: 16,
-            padding: 20,
-            marginBottom: 20,
-          }}
-        >
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 18,
-              fontWeight: "bold",
-              marginBottom: 16,
-            }}
-          >
+        <View className="bg-gray-800 rounded-2xl p-5 mb-5">
+          <Text className="text-white text-lg font-bold mb-4">
             Betting Limits
           </Text>
-          <View style={{ marginBottom: 12 }}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginBottom: 8,
-              }}
-            >
-              <Text style={{ color: "#888", fontSize: 14 }}>Min Bet</Text>
-              <Text style={{ color: "#fff", fontSize: 14 }}>₹10</Text>
+          <View className="mb-3">
+            <View className="flex-row justify-between mb-2">
+              <Text className="text-gray-400 text-sm">Min Bet</Text>
+              <Text className="text-white text-sm">₹10</Text>
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginBottom: 8,
-              }}
-            >
-              <Text style={{ color: "#888", fontSize: 14 }}>Max Bet</Text>
-              <Text style={{ color: "#fff", fontSize: 14 }}>₹50,000</Text>
+            <View className="flex-row justify-between mb-2">
+              <Text className="text-gray-400 text-sm">Max Bet</Text>
+              <Text className="text-white text-sm">₹50,000</Text>
             </View>
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
-            >
-              <Text style={{ color: "#888", fontSize: 14 }}>Daily Limit</Text>
-              <Text style={{ color: "#fff", fontSize: 14 }}>₹1,00,000</Text>
+            <View className="flex-row justify-between">
+              <Text className="text-gray-400 text-sm">Daily Limit</Text>
+              <Text className="text-white text-sm">₹1,00,000</Text>
             </View>
           </View>
         </View>
 
         {/* Recent Transactions */}
-        <View style={{ marginBottom: 20 }}>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 16,
-            }}
-          >
-            <Text style={{ color: "#fff", fontSize: 18, fontWeight: "bold" }}>
+        <View className="mb-5">
+          <View className="flex-row justify-between items-center mb-4">
+            <Text className="text-white text-lg font-bold">
               Recent Transactions
             </Text>
             <TouchableOpacity>
-              <Text style={{ color: "#2196F3", fontSize: 14 }}>View All</Text>
+              <Text className="text-blue-500 text-sm">View All</Text>
             </TouchableOpacity>
           </View>
 
           {transactions.map((transaction) => (
             <View
               key={transaction.id}
-              style={{
-                backgroundColor: "#1a1a1a",
-                borderRadius: 12,
-                padding: 16,
-                marginBottom: 12,
-                flexDirection: "row",
-                alignItems: "center",
-              }}
+              className="bg-gray-800 rounded-xl p-4 mb-3 flex-row items-center"
             >
               <View
-                style={{
-                  backgroundColor: transaction.color + "20",
-                  borderRadius: 8,
-                  padding: 8,
-                  marginRight: 12,
-                }}
+                className="bg-opacity-20 rounded-lg p-2 mr-3"
+                style={{ backgroundColor: transaction.color + "20" }}
               >
                 <Ionicons
-                  name={transaction.icon}
+                  name={transaction.icon as any}
                   size={20}
                   color={transaction.color}
                 />
               </View>
 
-              <View style={{ flex: 1 }}>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: 4,
-                  }}
-                >
-                  <Text
-                    style={{ color: "#fff", fontSize: 16, fontWeight: "bold" }}
-                  >
+              <View className="flex-1">
+                <View className="flex-row justify-between items-center mb-1">
+                  <Text className="text-white text-base font-bold">
                     {transaction.type}
                   </Text>
                   <Text
-                    style={{
-                      color: transaction.amount.startsWith("+")
-                        ? "#4CAF50"
-                        : "#f44336",
-                      fontSize: 16,
-                      fontWeight: "bold",
-                    }}
+                    className={`text-base font-bold ${transaction.amount.startsWith("+") ? "text-green-500" : "text-red-500"}`}
                   >
                     {transaction.amount}
                   </Text>
                 </View>
 
-                <View
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <Text style={{ color: "#888", fontSize: 12 }}>
+                <View className="flex-row justify-between items-center">
+                  <Text className="text-gray-400 text-xs">
                     {transaction.method}
                   </Text>
                   <View
-                    style={{
-                      backgroundColor:
-                        transaction.status === "Completed"
-                          ? "#4CAF50"
-                          : transaction.status === "Processing"
-                            ? "#FF9800"
-                            : "#2196F3",
-                      paddingHorizontal: 6,
-                      paddingVertical: 2,
-                      borderRadius: 4,
-                    }}
+                    className={`px-1.5 py-0.5 rounded ${transaction.status === "Completed" ? "bg-green-500" : transaction.status === "Processing" ? "bg-orange-500" : "bg-blue-500"}`}
                   >
-                    <Text
-                      style={{
-                        color: "#fff",
-                        fontSize: 10,
-                        fontWeight: "bold",
-                      }}
-                    >
+                    <Text className="text-white text-xs font-bold">
                       {transaction.status}
                     </Text>
                   </View>
                 </View>
 
-                <Text style={{ color: "#888", fontSize: 12, marginTop: 4 }}>
+                <Text className="text-gray-400 text-xs mt-1">
                   {transaction.date}
                 </Text>
               </View>
@@ -404,65 +219,31 @@ const Wallet = () => {
         </View>
 
         {/* Security & Verification */}
-        <View
-          style={{
-            backgroundColor: "#1a1a1a",
-            borderRadius: 16,
-            padding: 20,
-            marginBottom: 20,
-          }}
-        >
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 18,
-              fontWeight: "bold",
-              marginBottom: 16,
-            }}
-          >
+        <View className="bg-gray-800 rounded-2xl p-5 mb-5">
+          <Text className="text-white text-lg font-bold mb-4">
             Security & Verification
           </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginBottom: 12,
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View className="flex-row justify-between mb-3">
+            <View className="flex-row items-center">
               <Ionicons name="checkmark-circle" size={20} color="#4CAF50" />
-              <Text style={{ color: "#fff", fontSize: 14, marginLeft: 8 }}>
-                Email Verified
-              </Text>
+              <Text className="text-white text-sm ml-2">Email Verified</Text>
             </View>
             <Ionicons name="chevron-forward" size={16} color="#888" />
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginBottom: 12,
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View className="flex-row justify-between mb-3">
+            <View className="flex-row items-center">
               <Ionicons name="checkmark-circle" size={20} color="#4CAF50" />
-              <Text style={{ color: "#fff", fontSize: 14, marginLeft: 8 }}>
-                Phone Verified
-              </Text>
+              <Text className="text-white text-sm ml-2">Phone Verified</Text>
             </View>
             <Ionicons name="chevron-forward" size={16} color="#888" />
           </View>
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View className="flex-row justify-between">
+            <View className="flex-row items-center">
               <Ionicons name="close-circle" size={20} color="#f44336" />
-              <Text style={{ color: "#888", fontSize: 14, marginLeft: 8 }}>
-                KYC Pending
-              </Text>
+              <Text className="text-gray-400 text-sm ml-2">KYC Pending</Text>
             </View>
             <TouchableOpacity>
-              <Text style={{ color: "#2196F3", fontSize: 14 }}>Complete</Text>
+              <Text className="text-blue-500 text-sm">Complete</Text>
             </TouchableOpacity>
           </View>
         </View>
