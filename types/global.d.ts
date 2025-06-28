@@ -21,3 +21,28 @@ interface EventItemType {
   name: string;
   icon: any;
 }
+
+export interface MatchType {
+  id: number;
+  leagueType: string;
+  duration: string;
+  score: string;
+  team1: {
+    name: string;
+    logo: string;
+    former: string;
+  };
+  team2: {
+    name: string;
+    logo: string;
+    former: string;
+  };
+  winProbability: Array<{
+    id: number;
+    team: string;
+    probability: string;
+    percentage: number;
+  }>;
+  isLive?: boolean;
+  matchStatus?: "live" | "upcoming" | "finished";
+}
