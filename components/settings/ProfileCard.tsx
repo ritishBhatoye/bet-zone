@@ -52,7 +52,7 @@ const AnimatedAvatar = () => {
       }}
     >
       <View className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 justify-center items-center border-2 border-white border-opacity-30">
-        <Text className="text-white text-base font-bold">RB</Text>
+        <Text className="text-white text-base font-avalar">RB</Text>
       </View>
     </Animated.View>
   );
@@ -70,8 +70,8 @@ const ProfileCard = () => {
           <AnimatedAvatar />
         </View>
         <View className="flex flex-col items-start">
-          <Text className="text-2xl font-bold text-white">Ritish Bhatoye</Text>
-          <Text className="text-lg font-normal text-white">
+          <Text className="text-xl font-avalar text-white">Ritish Bhatoye</Text>
+          <Text className="text-sm font-montserrat text-white">
             +91 7042421344 . ritish@gmail.com
           </Text>
         </View>

@@ -5,7 +5,6 @@ import {
   GestureResponderEvent,
   TouchableOpacity,
 } from "react-native";
-import clsx from "clsx";
 
 type ButtonVariant = "primary" | "secondary" | "tertiary" | "isWhite";
 type ButtonSize = "sm" | "md" | "lg";
@@ -79,30 +78,15 @@ const Button: React.FC<ButtonProps> = ({
     }
   };
 
+  const buttonClassName = `rounded-xl items-center ${getButtonStyle()} ${getSizeStyle()} ${
+    fullWidth ? "w-full" : ""
+  } ${halfWidth ? "w-1/2" : ""} ${className}`;
+
+  const textClassNameFinal = `font-montserrat-semibold ${getTextStyle()} ${getTextSize()} ${textClassName}`;
+
   return (
-    <TouchableOpacity
-      onPress={onPress}
-      className={clsx(
-        "rounded-xl items-center",
-        getButtonStyle(),
-        getSizeStyle(),
-        {
-          "w-full": fullWidth,
-          "w-1/2": halfWidth,
-        },
-        className
-      )}
-    >
-      <Text
-        className={clsx(
-          "font-semibold",
-          getTextStyle(),
-          getTextSize(),
-          textClassName
-        )}
-      >
-        {title}
-      </Text>
+    <TouchableOpacity onPress={onPress} className={buttonClassName}>
+      <Text className={textClassNameFinal}>{title}</Text>
     </TouchableOpacity>
   );
 };

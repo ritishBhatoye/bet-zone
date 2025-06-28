@@ -7,7 +7,6 @@ import {
   ColorSchemeName,
 } from "react-native";
 import { useColorScheme } from "react-native";
-import clsx from "clsx";
 
 type InputSize = "sm" | "md" | "lg";
 type InputWidth = "full" | "half";
@@ -50,23 +49,22 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
     outline: "bg-transparent border-b border-gray-400",
   };
 
-  return (
-    <View className={clsx("mb-4", widthStyles[width])}>
-      {/* Label */}
-      <Text
-        className={clsx(
-          "font-semibold mb-1",
-          isDarkMode ? "text-white" : "text-primary-500"
-        )}
-      >
-        {label}
-      </Text>
+  const labelClassName = `font-montserrat-semibold mb-1 ${
+    isDarkMode ? "text-white" : "text-primary-500"
+  }`;
 
-      <View
-        className={clsx("rounded-lg", variantStyles[variant], sizeStyles[size])}
-      >
+  const containerClassName = `mb-4 ${widthStyles[width]}`;
+  const inputContainerClassName = `rounded-lg ${variantStyles[variant]} ${sizeStyles[size]}`;
+  const inputClassName = `text-swiggy-text w-full font-montserrat ${sizeStyles[size]}`;
+
+  return (
+    <View className={containerClassName}>
+      {/* Label */}
+      <Text className={labelClassName}>{label}</Text>
+
+      <View className={inputContainerClassName}>
         <TextInput
-          className={clsx("text-swiggy-text w-full", sizeStyles[size])}
+          className={inputClassName}
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}

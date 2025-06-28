@@ -21,10 +21,10 @@ const ActionTile = ({ actionData }: props) => {
           />
         )}
         <View className="flex flex-col items-start gap-2">
-          <Text className="text-lg font-bold text-black">
+          <Text className="text-lg font-avalar text-black">
             {actionData.title}
           </Text>
-          <Text className="text-sm font-normal text-slate-500">
+          <Text className="text-sm font-montserrat text-slate-500">
             {actionData.subTitle}
           </Text>
         </View>

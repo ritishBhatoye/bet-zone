@@ -69,33 +69,39 @@ const Wallet = () => {
       <View className="p-4">
         {/* Balance Overview */}
         <View className="bg-gray-800 rounded-2xl p-5 mb-5">
-          <Text className="text-white text-xl font-bold mb-4">
+          <Text className="text-white text-xl font-avalar mb-4">
             Wallet Balance
           </Text>
-          <Text className="text-green-500 text-3xl font-bold mb-2">
+          <Text className="text-green-500 text-3xl font-space-mono mb-2">
             {walletData.balance}
           </Text>
-          <Text className="text-gray-400 text-sm mb-4">
+          <Text className="text-gray-400 text-sm font-montserrat mb-4">
             Available for betting
           </Text>
 
           <View className="flex-row justify-between mb-3">
-            <Text className="text-gray-400 text-sm">Bonus Balance</Text>
-            <Text className="text-orange-500 text-sm font-bold">
+            <Text className="text-gray-400 text-sm font-montserrat">
+              Bonus Balance
+            </Text>
+            <Text className="text-orange-500 text-sm font-space-mono">
               {walletData.bonus}
             </Text>
           </View>
 
           <View className="flex-row justify-between mb-3">
-            <Text className="text-gray-400 text-sm">Total Deposited</Text>
-            <Text className="text-white text-sm">
+            <Text className="text-gray-400 text-sm font-montserrat">
+              Total Deposited
+            </Text>
+            <Text className="text-white text-sm font-space-mono">
               {walletData.totalDeposited}
             </Text>
           </View>
 
           <View className="flex-row justify-between">
-            <Text className="text-gray-400 text-sm">Total Withdrawn</Text>
-            <Text className="text-white text-sm">
+            <Text className="text-gray-400 text-sm font-montserrat">
+              Total Withdrawn
+            </Text>
+            <Text className="text-white text-sm font-space-mono">
               {walletData.totalWithdrawn}
             </Text>
           </View>
@@ -105,17 +111,21 @@ const Wallet = () => {
         <View className="flex-row justify-between mb-5">
           <TouchableOpacity className="bg-green-500 p-4 rounded-xl flex-1 mr-2 items-center">
             <Ionicons name="add-circle-outline" size={24} color="#fff" />
-            <Text className="text-white text-sm font-bold mt-2">Deposit</Text>
+            <Text className="text-white text-sm font-montserrat-bold mt-2">
+              Deposit
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity className="bg-blue-500 p-4 rounded-xl flex-1 ml-2 items-center">
             <Ionicons name="arrow-up-circle-outline" size={24} color="#fff" />
-            <Text className="text-white text-sm font-bold mt-2">Withdraw</Text>
+            <Text className="text-white text-sm font-montserrat-bold mt-2">
+              Withdraw
+            </Text>
           </TouchableOpacity>
         </View>
 
         {/* Payment Methods */}
         <View className="mb-5">
-          <Text className="text-white text-lg font-bold mb-4">
+          <Text className="text-white text-lg font-avalar mb-4">
             Payment Methods
           </Text>
           <View className="flex-row justify-between flex-wrap">
@@ -129,7 +139,7 @@ const Wallet = () => {
                   size={24}
                   color={method.color}
                 />
-                <Text className="text-white text-sm font-bold mt-2">
+                <Text className="text-white text-sm font-montserrat-bold mt-2">
                   {method.name}
                 </Text>
               </TouchableOpacity>
@@ -139,21 +149,31 @@ const Wallet = () => {
 
         {/* Betting Limits */}
         <View className="bg-gray-800 rounded-2xl p-5 mb-5">
-          <Text className="text-white text-lg font-bold mb-4">
+          <Text className="text-white text-lg font-avalar mb-4">
             Betting Limits
           </Text>
           <View className="mb-3">
             <View className="flex-row justify-between mb-2">
-              <Text className="text-gray-400 text-sm">Min Bet</Text>
-              <Text className="text-white text-sm">₹10</Text>
+              <Text className="text-gray-400 text-sm font-montserrat">
+                Min Bet
+              </Text>
+              <Text className="text-white text-sm font-space-mono">₹10</Text>
             </View>
             <View className="flex-row justify-between mb-2">
-              <Text className="text-gray-400 text-sm">Max Bet</Text>
-              <Text className="text-white text-sm">₹50,000</Text>
+              <Text className="text-gray-400 text-sm font-montserrat">
+                Max Bet
+              </Text>
+              <Text className="text-white text-sm font-space-mono">
+                ₹50,000
+              </Text>
             </View>
             <View className="flex-row justify-between">
-              <Text className="text-gray-400 text-sm">Daily Limit</Text>
-              <Text className="text-white text-sm">₹1,00,000</Text>
+              <Text className="text-gray-400 text-sm font-montserrat">
+                Daily Limit
+              </Text>
+              <Text className="text-white text-sm font-space-mono">
+                ₹1,00,000
+              </Text>
             </View>
           </View>
         </View>
@@ -161,11 +181,13 @@ const Wallet = () => {
         {/* Recent Transactions */}
         <View className="mb-5">
           <View className="flex-row justify-between items-center mb-4">
-            <Text className="text-white text-lg font-bold">
+            <Text className="text-white text-lg font-avalar">
               Recent Transactions
             </Text>
             <TouchableOpacity>
-              <Text className="text-blue-500 text-sm">View All</Text>
+              <Text className="text-blue-500 text-sm font-montserrat">
+                View All
+              </Text>
             </TouchableOpacity>
           </View>
 
@@ -187,30 +209,30 @@ const Wallet = () => {
 
               <View className="flex-1">
                 <View className="flex-row justify-between items-center mb-1">
-                  <Text className="text-white text-base font-bold">
+                  <Text className="text-white text-base font-avalar">
                     {transaction.type}
                   </Text>
                   <Text
-                    className={`text-base font-bold ${transaction.amount.startsWith("+") ? "text-green-500" : "text-red-500"}`}
+                    className={`text-base font-space-mono ${transaction.amount.startsWith("+") ? "text-green-500" : "text-red-500"}`}
                   >
                     {transaction.amount}
                   </Text>
                 </View>
 
                 <View className="flex-row justify-between items-center">
-                  <Text className="text-gray-400 text-xs">
+                  <Text className="text-gray-400 text-xs font-montserrat">
                     {transaction.method}
                   </Text>
                   <View
                     className={`px-1.5 py-0.5 rounded ${transaction.status === "Completed" ? "bg-green-500" : transaction.status === "Processing" ? "bg-orange-500" : "bg-blue-500"}`}
                   >
-                    <Text className="text-white text-xs font-bold">
+                    <Text className="text-white text-xs font-montserrat-bold">
                       {transaction.status}
                     </Text>
                   </View>
                 </View>
 
-                <Text className="text-gray-400 text-xs mt-1">
+                <Text className="text-gray-400 text-xs mt-1 font-montserrat">
                   {transaction.date}
                 </Text>
               </View>
@@ -220,30 +242,38 @@ const Wallet = () => {
 
         {/* Security & Verification */}
         <View className="bg-gray-800 rounded-2xl p-5 mb-5">
-          <Text className="text-white text-lg font-bold mb-4">
+          <Text className="text-white text-lg font-avalar mb-4">
             Security & Verification
           </Text>
           <View className="flex-row justify-between mb-3">
             <View className="flex-row items-center">
               <Ionicons name="checkmark-circle" size={20} color="#4CAF50" />
-              <Text className="text-white text-sm ml-2">Email Verified</Text>
+              <Text className="text-white text-sm font-montserrat ml-2">
+                Email Verified
+              </Text>
             </View>
             <Ionicons name="chevron-forward" size={16} color="#888" />
           </View>
           <View className="flex-row justify-between mb-3">
             <View className="flex-row items-center">
               <Ionicons name="checkmark-circle" size={20} color="#4CAF50" />
-              <Text className="text-white text-sm ml-2">Phone Verified</Text>
+              <Text className="text-white text-sm font-montserrat ml-2">
+                Phone Verified
+              </Text>
             </View>
             <Ionicons name="chevron-forward" size={16} color="#888" />
           </View>
           <View className="flex-row justify-between">
             <View className="flex-row items-center">
               <Ionicons name="close-circle" size={20} color="#f44336" />
-              <Text className="text-gray-400 text-sm ml-2">KYC Pending</Text>
+              <Text className="text-gray-400 text-sm font-montserrat ml-2">
+                KYC Pending
+              </Text>
             </View>
             <TouchableOpacity>
-              <Text className="text-blue-500 text-sm">Complete</Text>
+              <Text className="text-blue-500 text-sm font-montserrat">
+                Complete
+              </Text>
             </TouchableOpacity>
           </View>
         </View>

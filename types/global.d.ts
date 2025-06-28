@@ -22,6 +22,23 @@ interface EventItemType {
   icon: any;
 }
 
+interface ActionTileDataType {
+  title: string;
+  subTitle: string;
+  leadingIcon?: {
+    type: any;
+    name: string;
+    size: number;
+    color: string;
+  };
+  trailingIcon?: {
+    type: any;
+    name: string;
+    size: number;
+    color: string;
+  };
+}
+
 interface MatchType {
   id: number;
   sport: string;

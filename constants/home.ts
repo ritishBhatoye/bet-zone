@@ -59,7 +59,7 @@ export const TopEventsFilterData: EventItemType[] = [
   {
     id: 5,
     name: "Hockey",
-    icon: "ice-hockey-outline",
+    icon: "sports-outline",
   },
   {
     id: 6,

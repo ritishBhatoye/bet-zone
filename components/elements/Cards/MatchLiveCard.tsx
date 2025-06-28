@@ -34,7 +34,9 @@ const MatchLiveCard = ({ liveItem, onPress }: Props) => {
           <View className="absolute top-3 right-3 z-10 bg-gray-400">
             <View className="flex-row items-center bg-red-500 px-2 py-1 rounded-full">
               <View className="w-2 h-2 bg-white rounded-full mr-1 animate-pulse" />
-              <Text className="text-white text-xs font-bold">LIVE</Text>
+              <Text className="text-white text-xs font-montserrat-bold">
+                LIVE
+              </Text>
             </View>
           </View>
         )}
@@ -42,7 +44,7 @@ const MatchLiveCard = ({ liveItem, onPress }: Props) => {
         <View className="p-6">
           {/* League Type */}
           <View className="flex-row justify-center mb-4">
-            <Text className="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+            <Text className="text-xs font-montserrat-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
               {liveItem.leagueType}
             </Text>
           </View>
@@ -59,28 +61,30 @@ const MatchLiveCard = ({ liveItem, onPress }: Props) => {
                 />
               </View>
               <Text
-                className="text-sm font-semibold text-gray-800 text-center"
+                className="text-sm font-avalar text-gray-800 text-center"
                 numberOfLines={2}
               >
                 {liveItem.team1.name}
               </Text>
-              <Text className="text-xs text-gray-500 mt-1">
+              <Text className="text-xs font-montserrat text-gray-500 mt-1">
                 {liveItem.team1.former}
               </Text>
             </View>
 
             {/* Score and Duration */}
             <View className="flex-col items-center mx-4">
-              <Text className="text-3xl font-bold text-gray-900 mb-1">
+              <Text className="text-3xl font-space-mono text-gray-900 mb-1">
                 {liveItem.score}
               </Text>
-              <Text className="text-xs text-gray-400 font-medium">
+              <Text className="text-xs font-montserrat-medium text-gray-400">
                 {liveItem.duration}
               </Text>
               {liveItem.isLive && (
                 <View className="flex-row items-center mt-1">
                   <View className="w-1.5 h-1.5 bg-red-500 rounded-full mr-1" />
-                  <Text className="text-xs text-red-500 font-medium">Live</Text>
+                  <Text className="text-xs font-montserrat-medium text-red-500">
+                    Live
+                  </Text>
                 </View>
               )}
             </View>
@@ -95,12 +99,12 @@ const MatchLiveCard = ({ liveItem, onPress }: Props) => {
                 />
               </View>
               <Text
-                className="text-sm font-semibold text-gray-800 text-center"
+                className="text-sm font-avalar text-gray-800 text-center"
                 numberOfLines={2}
               >
                 {liveItem.team2.name}
               </Text>
-              <Text className="text-xs text-gray-500 mt-1">
+              <Text className="text-xs font-montserrat text-gray-500 mt-1">
                 {liveItem.team2.former}
               </Text>
             </View>
@@ -108,7 +112,7 @@ const MatchLiveCard = ({ liveItem, onPress }: Props) => {
 
           {/* Win Probability */}
           <View className="bg-gray-50 rounded-xl p-4">
-            <Text className="text-xs font-medium text-gray-600 mb-3 text-center">
+            <Text className="text-xs font-montserrat-medium text-gray-600 mb-3 text-center">
               Win Probability
             </Text>
             <View className="flex-row justify-between gap-3">
@@ -123,10 +127,10 @@ const MatchLiveCard = ({ liveItem, onPress }: Props) => {
                     key={win.id}
                     className="flex-1 bg-white rounded-lg p-3 border border-gray-100"
                   >
-                    <Text className="text-xs text-gray-500 text-center mb-1">
+                    <Text className="text-xs font-montserrat text-gray-500 text-center mb-1">
                       {win.team}
                     </Text>
-                    <Text className="text-lg font-bold text-gray-900 text-center">
+                    <Text className="text-lg font-space-mono text-gray-900 text-center">
                       {win.probability}
                     </Text>
                     <View className="mt-2">
@@ -136,7 +140,7 @@ const MatchLiveCard = ({ liveItem, onPress }: Props) => {
                           style={{ width: `${win.percentage}%` }}
                         />
                       </View>
-                      <Text className="text-xs text-gray-500 text-center mt-1">
+                      <Text className="text-xs font-montserrat text-gray-500 text-center mt-1">
                         {win.percentage}%
                       </Text>
                     </View>
@@ -151,7 +155,7 @@ const MatchLiveCard = ({ liveItem, onPress }: Props) => {
             className="mt-4 bg-blue-500 py-3 rounded-xl"
             activeOpacity={0.8}
           >
-            <Text className="text-white font-semibold text-center">
+            <Text className="text-white font-montserrat-bold text-center">
               Place Bet
             </Text>
           </TouchableOpacity>
