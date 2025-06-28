@@ -1,4 +1,4 @@
-import { CategoryCardDataType } from "@/types";
+// import { CategoryCardDataType } from "@/types";
 import React, { useState } from "react";
 
 import { View, Text, TouchableOpacity } from "react-native";
@@ -6,11 +6,7 @@ import { Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-export const CategoryCard = ({
-  category,
-}: {
-  category: CategoryCardDataType;
-}) => {
+export const CategoryCard = ({ category }: { category: any }) => {
   const [isFav, setIsFav] = useState(false);
   return (
     <View className="flex flex-row items-center w-full gap-5">
