@@ -59,6 +59,11 @@ export function useLiveMatches(sport: SportType = "football") {
   return useApi(() => sportsApiService.getLiveMatches(sport), [sport]);
 }
 
+// Live matches hook for app (transformed to MatchType format)
+export function useLiveMatchesForApp(sport: SportType = "football") {
+  return useApi(() => sportsApiService.getLiveMatchesForApp(sport), [sport]);
+}
+
 // Today's matches hook
 export function useTodayMatches(sport: SportType = "football", date?: string) {
   return useApi(

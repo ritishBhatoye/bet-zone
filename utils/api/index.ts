@@ -22,6 +22,7 @@ export { default as sportsApiService, SportsApiService } from "./services";
 // Hooks
 export {
   useLiveMatches,
+  useLiveMatchesForApp,
   useTodayMatches,
   useLeagueMatches,
   useTeamMatches,

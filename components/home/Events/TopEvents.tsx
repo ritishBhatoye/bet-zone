@@ -1,16 +1,50 @@
 import { TopEventsFilterData, matchLiveDummyData } from "@/constants/home";
-import React, { useState } from "react";
-import { FlatList, View, Text, ScrollView } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  FlatList,
+  View,
+  Text,
+  ScrollView,
+  ActivityIndicator,
+} from "react-native";
 import EventFilterItem from "./EventItem";
 import Switch from "@/components/atoms/Switch";
 import MatchLiveCard from "@/components/elements/Cards/MatchLiveCard";
+import { useLiveMatchesForApp, SportType } from "@/utils/api";
 
 const TopEvents = () => {
   const [isEventActive, setIsEventActive] = useState(false);
   const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
+  const [currentSport, setCurrentSport] = useState<SportType>("football");
+
+  // Get live matches from API
+  const {
+    data: liveMatches,
+    loading,
+    error,
+    refetch,
+  } = useLiveMatchesForApp(currentSport);
 
   const handleEventItemPress = (event: EventItemType) => {
     setSelectedEventId(event.id);
+    // Update sport based on selected event
+    const sportMapping: Record<string, SportType> = {
+      Football: "football",
+      Cricket: "cricket",
+      Basketball: "basketball",
+      Tennis: "tennis",
+      Hockey: "hockey",
+      Baseball: "baseball",
+      Volleyball: "volleyball",
+      Rugby: "rugby",
+      MMA: "mma",
+      Boxing: "boxing",
+    };
+
+    const newSport = sportMapping[event.name] || "football";
+    if (newSport !== currentSport) {
+      setCurrentSport(newSport);
+    }
   };
 
   // Find selected event name for filtering
@@ -19,8 +53,11 @@ const TopEvents = () => {
   );
   const selectedEventName = selectedEvent ? selectedEvent.name : null;
 
+  // Use API data if available, otherwise fallback to dummy data
+  const matchesData = liveMatches || matchLiveDummyData;
+
   // Filter matches by event and live status
-  const filteredMatches = matchLiveDummyData.filter((match) => {
+  const filteredMatches = matchesData.filter((match) => {
     const eventMatch = selectedEventName
       ? match.sport === selectedEventName.toLowerCase()
       : true;
@@ -29,6 +66,17 @@ const TopEvents = () => {
       : true;
     return eventMatch && liveMatch;
   });
+
+  // Auto-refresh live data every 30 seconds when live toggle is active
+  useEffect(() => {
+    if (isEventActive) {
+      const interval = setInterval(() => {
+        refetch();
+      }, 30000); // 30 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [isEventActive, refetch]);
 
   return (
     <View className="flex flex-col gap-5">
@@ -61,6 +109,23 @@ const TopEvents = () => {
         )}
       />
 
+      {loading && (
+        <View className="flex-row justify-center items-center py-8">
+          <ActivityIndicator size="large" color="#3b82f6" />
+          <Text className="ml-2 text-gray-600 font-montserrat">
+            Loading live matches...
+          </Text>
+        </View>
+      )}
+
+      {error && !loading && (
+        <View className="flex-row justify-center items-center py-8">
+          <Text className="text-red-500 font-montserrat text-center">
+            Failed to load live matches. Using cached data.
+          </Text>
+        </View>
+      )}
+
       <ScrollView
         style={{ flexGrow: 0 }}
         contentContainerStyle={{ paddingHorizontal: 16, gap: 16 }}
@@ -71,7 +136,9 @@ const TopEvents = () => {
           ))
         ) : (
           <Text className="text-center text-gray-400 mt-8 font-montserrat">
-            No matches found for this event.
+            {loading
+              ? "Loading matches..."
+              : "No matches found for this event."}
           </Text>
         )}
       </ScrollView>
