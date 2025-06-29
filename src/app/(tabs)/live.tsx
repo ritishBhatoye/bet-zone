@@ -24,7 +24,7 @@ const Live = () => {
         </TouchableOpacity>
       </View>
       <View className="mb-3 px-2">
-        <SearchInputField fieldText="Search by events, teams" />
+        <SearchInputField fieldText="Search by events, teams and players" />
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
