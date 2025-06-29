@@ -1,6 +1,6 @@
-import SearchInputField from "@/components/atoms/SearchInputField";
-import TabsSlider from "@/components/elements/TabsSlider";
-import LiveScreen from "@/components/live/LiveScreen";
+import SearchInputField from "@/src/components/atoms/SearchInputField";
+import TabsSlider from "@/src/components/elements/TabsSlider";
+import LiveScreen from "@/src/components/live/LiveScreen";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import {

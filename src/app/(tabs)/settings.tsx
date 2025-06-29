@@ -1,11 +1,11 @@
-import ProfileCard from "@/components/settings/ProfileCard";
+import ProfileCard from "@/src/components/settings/ProfileCard";
 import React from "react";
 import { ScrollView } from "react-native";
-import TabsSlider from "@/components/elements/TabsSlider";
+import TabsSlider from "@/src/components/elements/TabsSlider";
 import { LinearGradient } from "expo-linear-gradient";
-import Pick from "@/components/settings/TabContent/Pick";
-import Wallet from "@/components/settings/TabContent/Wallet";
-import Social from "@/components/settings/TabContent/Social";
+import Pick from "@/src/components/settings/TabContent/Pick";
+import Wallet from "@/src/components/settings/TabContent/Wallet";
+import Social from "@/src/components/settings/TabContent/Social";
 
 const Settings = () => {
   return (
