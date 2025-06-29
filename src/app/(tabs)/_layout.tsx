@@ -2,10 +2,10 @@ import { Router, Tabs, useRouter } from "expo-router";
 import React from "react";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { HapticTab } from "@/components/HapticTab";
+import { HapticTab } from "@/src/components/HapticTab";
 
 // import { useColorScheme } from "@/hooks/useColorScheme";
-import TopMenuBar from "@/components/home/TopMenuBar";
+import TopMenuBar from "@/src/components/home/TopMenuBar";
 import { SafeAreaView } from "react-native";
 
 export default function TabLayout() {
