@@ -1,6 +1,6 @@
 import ProfileCard from "@/components/settings/ProfileCard";
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView } from "react-native";
 import TabsSlider from "@/components/elements/TabsSlider";
 import { LinearGradient } from "expo-linear-gradient";
 import Pick from "@/components/settings/TabContent/Pick";
