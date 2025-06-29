@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import sportsApiService from "./services";
 import { SportType } from "./config";
-import { Match, LiveMatch, Team, League, ApiError } from "./types";
+import { ApiError } from "./types";
 
 interface UseApiState<T> {
   data: T | null;
