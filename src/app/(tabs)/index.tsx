@@ -1,6 +1,6 @@
-import SliderCard from "@/components/elements/Cards/SliderCard";
-import HorizontalSlider from "@/components/elements/HorizontalSlider";
-import TopEvents from "@/components/home/Events/TopEvents";
+import SliderCard from "@/src/components/elements/Cards/SliderCard";
+import HorizontalSlider from "@/src/components/elements/HorizontalSlider";
+import TopEvents from "@/src/components/home/Events/TopEvents";
 import { sliderDummy } from "@/constants/home";
 import { TopEventsWithAPI } from "@/utils/api/example-usage";
 import React from "react";
