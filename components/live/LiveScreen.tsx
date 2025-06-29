@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { BlurView } from "expo-blur";
 import { Ionicons } from "@expo/vector-icons";
 import MatchLiveCard from "@/components/elements/Cards/MatchLiveCard";
-import SearchInputField from "@/components/atoms/SearchInputField";
+
 import { matches } from "@/constants/live";
 
 const LiveScreen = () => {
@@ -14,37 +14,8 @@ const LiveScreen = () => {
   return (
     <View className="flex-1 bg-white dark:bg-black px-2 pt-4">
       {/* Header */}
-      <View className="flex-row items-center justify-between mb-4 px-2">
-        <Text className="text-lg font-bold tracking-widest">
-          <Text className="text-orange-500">● </Text>LIVE{" "}
-          <Text className="text-gray-400">LINE</Text>
-        </Text>
-        <TouchableOpacity>
-          <Ionicons name="settings-outline" size={22} color="#888" />
-        </TouchableOpacity>
-      </View>
 
       {/* Search and Filters */}
-      <View className="mb-3 px-2">
-        <SearchInputField fieldText="Search by events, teams" />
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          className="mt-3 flex-row gap-2"
-        >
-          <TouchableOpacity className="bg-black px-4 py-2 rounded-xl">
-            <Text className="text-white font-semibold">Football</Text>
-          </TouchableOpacity>
-          {[1, 2, 3, 4].map((i) => (
-            <TouchableOpacity
-              key={i}
-              className="bg-gray-200 px-4 py-2 rounded-xl"
-            >
-              <Ionicons name="stats-chart-outline" size={18} color="#888" />
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      </View>
 
       {/* Matches List */}
       <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
