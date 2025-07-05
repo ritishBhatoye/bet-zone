@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Pressable,
-  Text,
-  GestureResponderEvent,
-  TouchableOpacity,
-} from "react-native";
+import { Text, GestureResponderEvent, TouchableOpacity } from "react-native";
 
 type ButtonVariant = "primary" | "secondary" | "tertiary" | "isWhite";
 type ButtonSize = "sm" | "md" | "lg";
@@ -33,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   const getButtonStyle = (): string => {
     switch (variant) {
       case "primary":
-        return "bg-primary-500";
+        return "bg-primary-400";
       case "secondary":
         return "bg-secondary-golden-500 ";
       case "tertiary":
@@ -78,7 +73,7 @@ const Button: React.FC<ButtonProps> = ({
     }
   };
 
-  const buttonClassName = `rounded-xl items-center ${getButtonStyle()} ${getSizeStyle()} ${
+  const buttonClassName = `rounded-3xl items-center ${getButtonStyle()} ${getSizeStyle()} ${
     fullWidth ? "w-full" : ""
   } ${halfWidth ? "w-1/2" : ""} ${className}`;
 

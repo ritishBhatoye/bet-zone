@@ -1,13 +1,15 @@
 import React from "react";
-import { View } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import InputWithLabel from "../atoms/InputWithLabel";
+import Button from "../atoms/Button";
 
 const LoginForm = () => {
   return (
-    <View>
-      <InputWithLabel />
-      <InputWithLabel />
-    </View>
+    <SafeAreaView className="gap-5">
+      <InputWithLabel size="sm" variant="rounded" label="Email" />
+      <InputWithLabel size="sm" variant="rounded" label="Password" />
+      <Button title={"Log in"} />
+    </SafeAreaView>
   );
 };
 
