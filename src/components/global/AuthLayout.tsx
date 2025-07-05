@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Router, useRouter } from "expo-router";
 import React, { PropsWithChildren } from "react";
-import { ScrollView, View, Text } from "react-native";
+import { ScrollView, View, Text, SafeAreaView } from "react-native";
 const AuthLayout = ({
   isBackCTA,
   title,
@@ -14,8 +14,8 @@ const AuthLayout = ({
 }>) => {
   const router: Router = useRouter();
   return (
-    <View className="h-full flex-1 ">
-      <View className="flex-col items-start w-full h-1/3 bg-black pt-16 px-4  justify-evenly">
+    <SafeAreaView className="h-full flex-1 ">
+      <View className="flex-col items-start w-full h-1/3 bg-black  px-4  justify-evenly">
         {isBackCTA && (
           <Ionicons
             name="chevron-back-outline"
@@ -30,12 +30,10 @@ const AuthLayout = ({
           {subTitle}
         </Text>
       </View>
-      <ScrollView className="bg-transparent -mt-4 flex-1">
-        <View className="rounded-t-3xl px-4 bg-white  min-h-[100%] pb-10">
-          {children}
-        </View>
+      <ScrollView className="bg-transparent rounded-t-3xl p-5">
+        {children}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
