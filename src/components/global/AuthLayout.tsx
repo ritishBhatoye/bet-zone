@@ -4,11 +4,13 @@ import React, { PropsWithChildren } from "react";
 import { ScrollView, View, Text, SafeAreaView } from "react-native";
 const AuthLayout = ({
   isBackCTA,
+  isBackCTAText,
   title,
   subTitle,
   children,
 }: PropsWithChildren<{
   isBackCTA?: boolean;
+  isBackCTAText?: boolean;
   title: string;
   subTitle: string;
 }>) => {
@@ -17,12 +19,19 @@ const AuthLayout = ({
     <SafeAreaView className="h-full flex-1 ">
       <View className="flex-col items-start w-full h-1/3 bg-black  px-4  justify-evenly">
         {isBackCTA && (
-          <Ionicons
-            name="chevron-back-outline"
-            color={"white"}
-            size={30}
-            onPress={() => router.back()}
-          />
+          <View className="flex-row ">
+            <Ionicons
+              name="chevron-back-outline"
+              color={"white"}
+              size={30}
+              onPress={() => router.back()}
+            />
+            {isBackCTAText && (
+              <Text className="text-white text-sm font-avalar">
+                Go back to Dashboard
+              </Text>
+            )}
+          </View>
         )}
         <Text className="text-2xl font-avalar-bold text-white">{title}</Text>
 
