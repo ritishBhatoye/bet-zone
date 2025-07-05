@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -20,6 +20,7 @@ interface InputWithLabelProps extends TextInputProps {
   width?: InputWidth;
   variant?: InputVariant;
   isPassword?: boolean;
+  onForgotPassword?: () => void;
 }
 
 const InputWithLabel: React.FC<InputWithLabelProps> = ({
@@ -32,13 +33,15 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
   width = "full",
   variant = "box",
   isPassword,
+  onForgotPassword,
   ...rest
 }) => {
   const colorScheme: ColorSchemeName = useColorScheme();
   const isDarkMode: boolean = colorScheme === "dark";
+  const [showPassword, setShowPassword] = useState(false);
 
   const sizeStyles = {
-    sm: "text-sm p-1.5",
+    sm: "text-sm p-2",
     md: "text-base p-3",
     lg: "text-lg p-4",
   };
@@ -49,41 +52,68 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
   };
 
   const variantStyles = {
-    box: "bg-swiggy-accent-light border border-border-dark",
-    outline: "bg-transparent border-b border-border-dark",
-    rounded: "bg-transparent border-[0.5px] rounded-3xl border-border-dark",
+    box: "bg-white border border-border-light rounded-lg",
+    outline: "bg-transparent border-b border-border-medium",
+    rounded: "bg-transparent border-[0.5px] rounded-3xl border-border-medium",
   };
 
-  const labelClassName = `font-avalar ${sizeStyles.sm ? "text-base" : sizeStyles.md ? "text-lg" : sizeStyles.lg ? "text-xl" : null} mb-1 ${isDarkMode ? "text-white" : "text-black"}`;
+  const labelClassName = `font-avalar-bold mb-2 ${
+    size === "sm" ? "text-sm" : size === "lg" ? "text-lg" : "text-base"
+  } ${isDarkMode ? "text-white" : "text-gray-800"}`;
 
-  const containerClassName = ` ${widthStyles[width]}`;
-  const inputContainerClassName = `${isPassword ? "flex-row" : null} ${variantStyles[variant]} ${sizeStyles[size]}`;
-  const inputClassName = `text-black w-full font-montserrat ${sizeStyles[size]}`;
+  const containerClassName = `mb-4 ${widthStyles[width]}`;
+  const inputContainerClassName = `flex-row items-center ${variantStyles[variant]} ${sizeStyles[size]}`;
+  const inputClassName = `flex-1 font-montserrat ${
+    size === "sm" ? "text-sm" : size === "lg" ? "text-lg" : "text-base"
+  } ${isDarkMode ? "text-white" : "text-gray-900"}`;
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <View className={containerClassName}>
       {/* Label */}
-      <Text className={labelClassName}>{label}</Text>
+      {label && <Text className={labelClassName}>{label}</Text>}
 
+      {/* Input Container */}
       <View className={inputContainerClassName}>
         <TextInput
           className={inputClassName}
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
-          secureTextEntry={secureTextEntry && isPassword}
-          placeholderTextColor={isDarkMode ? "#CCCCCC" : "#333333"}
+          secureTextEntry={isPassword ? !showPassword : secureTextEntry}
+          placeholderTextColor={isDarkMode ? "#9CA3AF" : "#6B7280"}
           {...rest}
         />
+
+        {/* Password Toggle Icon */}
         {isPassword && (
-          <TouchableOpacity className="justify-end ">
-            <Ionicons name={"eye-off-outline"} color={"black"} size={14} />
+          <TouchableOpacity
+            onPress={togglePasswordVisibility}
+            className="ml-2 "
+            activeOpacity={0.7}
+          >
+            <Ionicons
+              name={showPassword ? "eye-outline" : "eye-off-outline"}
+              color={isDarkMode ? "#9CA3AF" : "#6B7280"}
+              size={20}
+            />
           </TouchableOpacity>
         )}
       </View>
-      {isPassword && (
-        <TouchableOpacity className="justify-end w-full flex-1">
-          <Text className=" text-neutral-950">Forget your password</Text>
+
+      {/* Forgot Password Link */}
+      {isPassword && onForgotPassword && (
+        <TouchableOpacity
+          onPress={onForgotPassword}
+          className="self-end mt-2"
+          activeOpacity={0.7}
+        >
+          <Text className="text-primary-500 font-montserrat-medium text-sm">
+            Forgot your password?
+          </Text>
         </TouchableOpacity>
       )}
     </View>
