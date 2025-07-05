@@ -14,8 +14,8 @@ const AuthLayout = ({
 }>) => {
   const router: Router = useRouter();
   return (
-    <View className="h-full">
-      <View className="flex-col items-start w-full h-2.5 bg-black">
+    <View className="h-full flex-1 ">
+      <View className="flex-col items-start w-full h-1/3 bg-black pt-16 px-4  justify-evenly">
         {isBackCTA && (
           <Ionicons
             name="chevron-back-outline"
@@ -24,15 +24,13 @@ const AuthLayout = ({
             onPress={() => router.back()}
           />
         )}
-        <Text className="text-2xl font-barlow-extralight text-white">
-          {title}
-        </Text>
+        <Text className="text-2xl font-avalar-bold text-white">{title}</Text>
 
-        <Text className="text-md font-barlow-extralight text-white">
+        <Text className="text-2xl font-montserrat-light text-white  ">
           {subTitle}
         </Text>
       </View>
-      <ScrollView className="rounded-t-xl">{children}</ScrollView>
+      <ScrollView className="rounded-t-xl px-4">{children}</ScrollView>
     </View>
   );
 };

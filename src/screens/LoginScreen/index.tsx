@@ -4,7 +4,11 @@ import { View, Text } from "react-native";
 
 const LoginScreen = () => {
   return (
-    <AuthLayout title={""} subTitle={""} isBackCTA>
+    <AuthLayout
+      title={"Welcome to BetZone"}
+      subTitle={"Enter your username and password to login in"}
+      isBackCTA
+    >
       <View>
         <Text className="text-red-500">LOGIN</Text>
       </View>
