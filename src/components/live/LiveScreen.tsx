@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { BlurView } from "expo-blur";
 import { Ionicons } from "@expo/vector-icons";
-import MatchLiveCard from "@/components/elements/Cards/MatchLiveCard";
+import MatchLiveCard from "@/src/components/elements/Cards/MatchLiveCard";
 
 import { matches } from "@/constants/live";
 

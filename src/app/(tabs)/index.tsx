@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <SafeAreaView className="bg-white h-full">
       <ScrollView className="h-full">
-        <TopEventsWithAPI />
+        {/* <TopEventsWithAPI /> */}
         <HorizontalSlider
           card={(item) => <SliderCard item={item} />}
           cardData={sliderDummy}

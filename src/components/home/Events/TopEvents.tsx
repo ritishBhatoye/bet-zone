@@ -8,8 +8,8 @@ import {
   ActivityIndicator,
 } from "react-native";
 import EventFilterItem from "./EventItem";
-import Switch from "@/components/atoms/Switch";
-import MatchLiveCard from "@/components/elements/Cards/MatchLiveCard";
+import Switch from "@/src/components/atoms/Switch";
+import MatchLiveCard from "@/src/components/elements/Cards/MatchLiveCard";
 import { useLiveMatchesForApp, SportType } from "@/utils/api";
 
 const TopEvents = () => {

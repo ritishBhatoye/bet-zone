@@ -9,7 +9,7 @@ import {
   useLiveMatchesForApp,
   MatchType,
 } from "./index";
-import MatchLiveCard from "@/components/elements/Cards/MatchLiveCard";
+import MatchLiveCard from "@/src/components/elements/Cards/MatchLiveCard";
 
 // Example of how to use the API with your existing TopEvents component
 export const TopEventsWithAPI = () => {
