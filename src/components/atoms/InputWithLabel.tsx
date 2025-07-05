@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import {
   View,
@@ -56,7 +57,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
   const labelClassName = `font-avalar ${sizeStyles.sm ? "text-base" : sizeStyles.md ? "text-lg" : sizeStyles.lg ? "text-xl" : null} mb-1 ${isDarkMode ? "text-white" : "text-black"}`;
 
   const containerClassName = ` ${widthStyles[width]}`;
-  const inputContainerClassName = ` ${variantStyles[variant]} ${sizeStyles[size]}`;
+  const inputContainerClassName = `${isPassword ? "flex-row" : null} ${variantStyles[variant]} ${sizeStyles[size]}`;
   const inputClassName = `text-black w-full font-montserrat ${sizeStyles[size]}`;
 
   return (
@@ -70,10 +71,15 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
-          secureTextEntry={secureTextEntry}
+          secureTextEntry={secureTextEntry && isPassword}
           placeholderTextColor={isDarkMode ? "#CCCCCC" : "#333333"}
           {...rest}
         />
+        {isPassword && (
+          <TouchableOpacity className="justify-end ">
+            <Ionicons name={"eye-off-outline"} color={"black"} size={14} />
+          </TouchableOpacity>
+        )}
       </View>
       {isPassword && (
         <TouchableOpacity className="justify-end w-full flex-1">
