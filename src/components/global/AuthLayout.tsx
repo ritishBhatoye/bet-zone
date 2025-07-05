@@ -20,7 +20,7 @@ const AuthLayout = ({
           <Ionicons
             name="chevron-back-outline"
             color={"white"}
-            size={24}
+            size={30}
             onPress={() => router.back()}
           />
         )}
@@ -30,7 +30,11 @@ const AuthLayout = ({
           {subTitle}
         </Text>
       </View>
-      <ScrollView className="rounded-t-xl px-4">{children}</ScrollView>
+      <ScrollView className="bg-transparent -mt-4 flex-1">
+        <View className="rounded-t-3xl px-4 bg-white  min-h-[100%] pb-10">
+          {children}
+        </View>
+      </ScrollView>
     </View>
   );
 };
