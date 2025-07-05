@@ -1,6 +1,7 @@
+import LoginForm from "@/src/components/forms/login";
 import AuthLayout from "@/src/components/global/AuthLayout";
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 
 const LoginScreen = () => {
   return (
@@ -9,9 +10,9 @@ const LoginScreen = () => {
       subTitle={"Enter your username and password to login in"}
       isBackCTA
     >
-      <View>
-        <Text className="text-red-500">LOGIN</Text>
-      </View>
+      <SafeAreaView>
+        <LoginForm />
+      </SafeAreaView>
     </AuthLayout>
   );
 };
