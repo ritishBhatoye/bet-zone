@@ -1,20 +1,19 @@
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { ScrollView, View, Text } from "react-native";
 const AuthLayout = ({
   isBackCTA,
   title,
   subTitle,
   children,
-}: {
+}: PropsWithChildren<{
   isBackCTA?: boolean;
   title: string;
   subTitle: string;
-  children: React.JSX.Element;
-}) => {
+}>) => {
   return (
-    <View className="flex-1">
-      <View className="flex-col items-start w-full">
+    <View className="h-full">
+      <View className="flex-col items-start w-full h-2.5">
         {isBackCTA && (
           <Ionicons name="chevron-back-outline" color={"white"} size={24} />
         )}
