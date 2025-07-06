@@ -3,7 +3,7 @@ import React from "react";
 import { SafeAreaView } from "react-native";
 import RegisterForm from "../components/forms/register";
 
-const LoginScreen = () => {
+const RegisterScreen = () => {
   return (
     <AuthLayout
       isBackCTAText
@@ -18,4 +18,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;

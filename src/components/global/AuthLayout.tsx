@@ -19,7 +19,7 @@ const AuthLayout = ({
     <SafeAreaView className="h-full flex-1 ">
       <View className="flex-col items-start w-full h-1/3 bg-black  px-4  justify-evenly">
         {isBackCTA && (
-          <View className="flex-row ">
+          <View className="flex-row items-center">
             <Ionicons
               name="chevron-back-outline"
               color={"white"}
