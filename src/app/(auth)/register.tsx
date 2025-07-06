@@ -1,7 +1,7 @@
 import React from "react";
 
 const Register = () => {
-  return <></>;
+  return <RegisterScreen />;
 };
 
 export default Register;

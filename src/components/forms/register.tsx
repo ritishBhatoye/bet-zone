@@ -3,12 +3,14 @@ import { Text, TouchableOpacity, View } from "react-native";
 import InputWithLabel from "../atoms/InputWithLabel";
 import Button from "../atoms/Button";
 import { Router, useRouter } from "expo-router";
+import CheckboxRadio from "../atoms/CheckboxRadio";
 
 const RegisterForm = () => {
   const router: Router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [acceptTerms, setAcceptTerms] = useState(false);
 
   const handleLogin = () => {
     // Add your login logic here
@@ -51,6 +53,17 @@ const RegisterForm = () => {
         onChangeText={setPassword}
         placeholder="Confirm your password"
       />
+      <View className="flex-row items-center gap-1 justify-between">
+        <View className="flex-row items-center gap-1">
+          <CheckboxRadio
+            type="square"
+            checked={acceptTerms}
+            onPress={() => setAcceptTerms(!acceptTerms)}
+            label="I accept the terms and conditions"
+            size="sm"
+          />
+        </View>
+      </View>
       <Button
         title="Sign Up"
         onPress={handleLogin}
